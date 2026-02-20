@@ -1,0 +1,91 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    color: white;
+    overflow-x: hidden;
+}
+
+/* 🌌 Fondo aurora */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: 
+        linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)),
+        url("ce84a14d1662148470a069f52baad97b.gif") center/cover no-repeat;
+    z-index: -3;
+    animation: slowZoom 60s infinite alternate ease-in-out;
+}
+
+/* Zoom cinematográfico */
+@keyframes slowZoom {
+    from { transform: scale(1); }
+    to { transform: scale(1.08); }
+}
+
+/* Capa suave de brillo verde */
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at 50% 30%, rgba(0,255,150,0.15), transparent 70%);
+    z-index: -2;
+    animation: glowPulse 6s infinite alternate;
+}
+
+@keyframes glowPulse {
+    from { opacity: 0.4; }
+    to { opacity: 0.8; }
+}
+
+.content {
+    position: relative;
+    z-index: 2;
+    padding: 80px 20px;
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.title {
+    font-size: 3rem;
+    letter-spacing: 2px;
+    animation: glowText 3s infinite alternate;
+}
+
+.subtitle {
+    font-weight: 300;
+    opacity: 0.8;
+}
+
+@keyframes glowText {
+    from { text-shadow: 0 0 15px #00ffcc; }
+    to { text-shadow: 0 0 35px #00ff99; }
+}
+
+.letter {
+    max-width: 800px;
+    margin: auto;
+}
+
+.letter p {
+    font-size: 1.3rem;
+    line-height: 1.9;
+    margin-bottom: 60px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: 1.5s ease;
+}
+
+/* Reveal */
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.final {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+}
